@@ -62,5 +62,5 @@ jobs:
       # Step 7: Deploy the SAM application to AWS
       - name: Deploy the SAM application
         run: |
-          sam deploy --template-file packaged.yaml --no-confirm-changeset --capabilities CAPABILITY_IAM --stack-name my-sam-stack61 --region us-west-2 --resolve-s3
+          sam deploy --template-file packaged.yml --no-confirm-changeset --capabilities CAPABILITY_IAM --stack-name my-sam-stack61 --region us-west-2 --resolve-s3
 
