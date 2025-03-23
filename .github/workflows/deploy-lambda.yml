@@ -46,8 +46,16 @@ jobs:
         run: |
           sam build
 
+      - name: Package SAM Application
+        run: |
+          sam package \
+            --template-file template.yaml \
+            --output-template-file packaged.yaml \
+            --s3-bucket ragtestwy \
+            --region us-west-2
+
       # Step 7: Deploy the SAM application to AWS
       - name: Deploy the SAM application
         run: |
-          sam deploy --no-confirm-changeset --capabilities CAPABILITY_IAM --stack-name my-sam-stack6 --region us-west-2 --resolve-s3
+          sam deploy --template-file packaged.yaml --no-confirm-changeset --capabilities CAPABILITY_IAM --stack-name my-sam-stack61 --region us-west-2 --resolve-s3
 

@@ -5,11 +5,18 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: src/app.lambda_handler  # The handler function in your Lambda code
-      Runtime: python3.8              # Runtime for your Lambda (adjust as needed)
-      CodeUri: ./src                  # Path to your Lambda function code
+      Handler: src/app.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./src/
       MemorySize: 128
       Timeout: 100
       Environment:
         Variables:
           PARAM1: "value1"
+      Policies:
+        - AWSLambdaBasicExecutionRole
+
+Outputs:
+  HelloWorldFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt HelloWorldFunction.Arn
