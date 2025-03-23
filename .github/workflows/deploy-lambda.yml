@@ -54,7 +54,7 @@ jobs:
       - name: Package SAM Application
         run: |
           sam package \
-            --template-file ./template.yaml \
+            --template-file ./template.yml \
             --output-template-file packaged.yml \
             --s3-bucket ragtestwy \
             --region us-west-2
