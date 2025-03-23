@@ -46,6 +46,11 @@ jobs:
         run: |
           sam build
 
+      - name: Debug- List files in the repository
+        run: |
+          pwd  # This will print the current working directory
+          ls -l  # This will list the files in the current directory to ensure template.yaml is there
+
       - name: Package SAM Application
         run: |
           sam package \
