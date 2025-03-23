@@ -39,7 +39,7 @@ jobs:
         run: |
           curl --silent --location https://github.com/aws/aws-sam-cli/releases/download/v1.42.0/aws-sam-cli-linux-x86_64.zip -o sam-cli.zip
           unzip -q sam-cli.zip -d sam-cli
-          sudo ./sam-cli/install
+          sudo ./sam-cli/install --update
 
       # Step 6: Build the SAM application
       - name: Build the SAM application
