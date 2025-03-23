@@ -7,7 +7,16 @@ Resources:
     Properties:
       Handler: src/app.lambda_handler
       Runtime: python3.8
-      CodeUri: ./src/
+      InlineCode: |
+        exports.handler = async (event) => {
+          console.log("Hello World!");
+          return {
+            statusCode: 200,
+            body: JSON.stringify({
+              message: 'Hello World from Inline Lambda!',
+            }),
+          };
+        };
       MemorySize: 128
       Timeout: 100
       Environment:
@@ -17,6 +26,6 @@ Resources:
         - AWSLambdaBasicExecutionRole
 
 Outputs:
-  HelloWorldFunction:
+  bedrockproxyy:
     Description: "Hello World Lambda Function ARN"
-    Value: !GetAtt HelloWorldFunction.Arn
+    Value: arn:aws:lambda:us-west-2:619071353516:function:bedrockproxyy
