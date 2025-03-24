@@ -7,16 +7,7 @@ Resources:
     Properties:
       Handler: src/app.lambda_handler
       Runtime: python3.8
-      InlineCode: |
-        exports.handler = async (event) => {
-          console.log("Hello World!");
-          return {
-            statusCode: 200,
-            body: JSON.stringify({
-              message: 'Hello World from Inline Lambda!22',
-            }),
-          };
-        };
+      CodeUri: ./src/
       MemorySize: 128
       Timeout: 100
       Environment:
